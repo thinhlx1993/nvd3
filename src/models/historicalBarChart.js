@@ -461,6 +461,8 @@ nv.models.ohlcBarChart = function () {
     var d = data.series[0].data;
     // match line colors as defined in nv.d3.css
     var color = d.open < d.close ? "2ca02c" : "d62728";
+    var icon_color = d.predict == "UP" ? "2ca02c" : "d62728";
+    var icon = d.predict == "UP" ? '<i style="color: #' + icon_color + '" class="material-icons">&#xE8E5;</i>' : '<i style="color: #' + icon_color + '" class="material-icons">&#xE8E3;</i>';
     return '' +
       '<h3 style="color: #' + color + '">' + data.value + '</h3>' +
       '<table>' +
@@ -468,7 +470,7 @@ nv.models.ohlcBarChart = function () {
       '<tr><td>close:</td><td>' + chart.yAxis.tickFormat()(d.close) + '</td></tr>' +
       '<tr><td>high</td><td>' + chart.yAxis.tickFormat()(d.high) + '</td></tr>' +
       '<tr><td>low:</td><td>' + chart.yAxis.tickFormat()(d.low) + '</td></tr>' +
-      '<tr><td>predict:</td><td>' + d.predict + '</td></tr>' +
+      '<tr><td>predict:</td><td>' + icon + '</td></tr>' +
       '</table>';
   });
   return chart;
@@ -485,6 +487,8 @@ nv.models.candlestickBarChart = function () {
     var d = data.series[0].data;
     // match line colors as defined in nv.d3.css
     var color = d.open < d.close ? "2ca02c" : "d62728";
+    var icon_color = d.predict == "UP" ? "2ca02c" : "d62728";
+    var icon = d.predict == "UP" ? '<i style="color: #' + icon_color + '" class="material-icons">&#xE8E5;</i>' : '<i style="color: #' + icon_color + '" class="material-icons">&#xE8E3;</i>';
     return '' +
       '<h3 style="color: #' + color + '">' + data.value + '</h3>' +
       '<table>' +
@@ -492,7 +496,7 @@ nv.models.candlestickBarChart = function () {
       '<tr><td>close:</td><td>' + chart.yAxis.tickFormat()(d.close) + '</td></tr>' +
       '<tr><td>high</td><td>' + chart.yAxis.tickFormat()(d.high) + '</td></tr>' +
       '<tr><td>low:</td><td>' + chart.yAxis.tickFormat()(d.low) + '</td></tr>' +
-      '<tr><td>predict:</td><td>' + d.predict + '</td></tr>' +
+      '<tr><td>predict:</td><td>' + icon + '</td></tr>' +
       '</table>';
   });
   return chart;
